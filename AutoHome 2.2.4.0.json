@@ -2,7 +2,7 @@
     {
         "id": "aba512bc.ffd29",
         "type": "tab",
-        "label": "Auto Home Prj",
+        "label": "Main",
         "disabled": false,
         "info": ""
     },
@@ -18,17 +18,6 @@
         "shared": false
     },
     {
-        "id": "738ac74.0795b38",
-        "type": "ui_group",
-        "z": 0,
-        "name": "GroupLogout",
-        "tab": "",
-        "order": 5,
-        "disp": false,
-        "width": "4",
-        "collapse": false
-    },
-    {
         "id": "794dc6a0.1dee18",
         "type": "ui_group",
         "z": "",
@@ -37,28 +26,6 @@
         "order": 1,
         "disp": true,
         "width": "4",
-        "collapse": false
-    },
-    {
-        "id": "9cc7e5c5.c89828",
-        "type": "ui_group",
-        "z": 0,
-        "name": "Relay 2",
-        "tab": "",
-        "order": 2,
-        "disp": true,
-        "width": "4",
-        "collapse": false
-    },
-    {
-        "id": "878beec4.7bf3",
-        "type": "ui_group",
-        "z": "",
-        "name": "Group1",
-        "tab": "",
-        "order": 4,
-        "disp": true,
-        "width": "6",
         "collapse": false
     },
     {
@@ -84,7 +51,8 @@
                 "name": "Untitled Theme 1",
                 "default": "#4B7930",
                 "baseColor": "#4B7930",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "reset": false
             },
             "themeState": {
                 "base-color": {
@@ -159,28 +127,6 @@
         }
     },
     {
-        "id": "2494054f.a0c6ea",
-        "type": "ui_group",
-        "z": "",
-        "name": "Led 1",
-        "tab": "",
-        "order": 3,
-        "disp": true,
-        "width": "4",
-        "collapse": false
-    },
-    {
-        "id": "4ba318c1.0ebb58",
-        "type": "ibmiot",
-        "z": "",
-        "name": "Sender",
-        "keepalive": "60",
-        "serverName": "",
-        "cleansession": false,
-        "appId": "",
-        "shared": false
-    },
-    {
         "id": "d5265dd3.d8a9b",
         "type": "ui_group",
         "z": "",
@@ -211,61 +157,6 @@
         "order": 1,
         "disabled": false,
         "hidden": false
-    },
-    {
-        "id": "fb471ce8.43bc1",
-        "type": "ibmiot",
-        "z": "",
-        "name": "Sender",
-        "keepalive": "60",
-        "serverName": "",
-        "cleansession": false,
-        "appId": "",
-        "shared": false
-    },
-    {
-        "id": "53861031.02cac",
-        "type": "ui_group",
-        "z": 0,
-        "name": "GroupLogout",
-        "tab": "",
-        "order": 4,
-        "disp": false,
-        "width": "4",
-        "collapse": false
-    },
-    {
-        "id": "82d4d854.a82d18",
-        "type": "ui_group",
-        "z": 0,
-        "name": "Relay 1",
-        "tab": "",
-        "order": 2,
-        "disp": true,
-        "width": "4",
-        "collapse": false
-    },
-    {
-        "id": "d9eb2811.9926c8",
-        "type": "ui_group",
-        "z": 0,
-        "name": "Relay 2",
-        "tab": "",
-        "order": 3,
-        "disp": true,
-        "width": "4",
-        "collapse": false
-    },
-    {
-        "id": "b7b90bd9.55f358",
-        "type": "ui_group",
-        "z": "",
-        "name": "Group1",
-        "tab": "",
-        "order": 2,
-        "disp": true,
-        "width": "6",
-        "collapse": false
     },
     {
         "id": "8fd91ef3.7a239",
@@ -388,7 +279,7 @@
         "id": "90d438d6.be1708",
         "type": "ui_spacer",
         "name": "spacer",
-        "group": "82d4d854.a82d18",
+        "group": "",
         "order": 2,
         "width": 1,
         "height": 1
@@ -486,7 +377,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "{\"group\":{\"hide\":[\"AutoHome_Login\"],\"show\":[\"AutoHome_Relay_1\",\"AutoHome_Relay_2\",\"AutoHome_Led_1\",\"AutoHome_Led_2\",\"AutoHome_Led_3\",\"AutoHome_Led_4\",\"AutoHome_Led_5\",\"AutoHome_Led_6\",\"AutoHome_Led_7\",\"AutoHome_Led_8\",\"AutoHome_Texto_Livre\",\"AutoHome_Temperatura\",\"AutoHome_Umidade\",\"AutoHome_Status\",\"AutoHome_GroupLogout\"]}}",
+                "to": "{\"group\":{\"hide\":[\"AutoHome_Login\"],\"show\":[\"AutoHome_Led_1\",\"AutoHome_Led_2\",\"AutoHome_Led_3\",\"AutoHome_Led_4\",\"AutoHome_Led_5\",\"AutoHome_Led_6\",\"AutoHome_Led_7\",\"AutoHome_Led_8\",\"AutoHome_Texto_Livre\",\"AutoHome_Temperatura\",\"AutoHome_Umidade\",\"AutoHome_Status\",\"AutoHome_GroupLogout\"]}}",
                 "tot": "json"
             }
         ],
@@ -538,7 +429,7 @@
         "type": "function",
         "z": "aba512bc.ffd29",
         "name": "checkLogin",
-        "func": "if(msg.payload.login == 'usuario' \n    && msg.payload.password == 'senha de acesso')\n{\n    var log = msg.payload.login;\n    var pwd = msg.payload.password;\n    \n    msg.payload.login = 'correto';\n    msg.payload.password = 'correto';\n    return msg;\n}\nelse{\n    node.error(\"Usuário incorreto: \" + msg.payload.login);\n    node.error(\"Senha incorreta: \" + msg.payload.password);\n}\nreturn msg;",
+        "func": "if(msg.payload.login == 'usuario de acesso' \n    && msg.payload.password == 'senha de acesso')\n{\n    var log = msg.payload.login;\n    var pwd = msg.payload.password;\n    \n    msg.payload.login = 'correto';\n    msg.payload.password = 'correto';\n    return msg;\n}\nelse{\n    node.error(\"Usuário incorreto: \" + msg.payload.login);\n    node.error(\"Senha incorreta: \" + msg.payload.password);\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 270,
@@ -554,7 +445,7 @@
         "type": "ibmiot out",
         "z": "aba512bc.ffd29",
         "authentication": "apiKey",
-        "apiKey": "fb471ce8.43bc1",
+        "apiKey": "31beec5e.b2a9a4",
         "outputType": "cmd",
         "deviceId": "001",
         "deviceType": "NodeMCU",
@@ -562,9 +453,9 @@
         "format": "json",
         "data": "{\"data\":\"data\"}",
         "qos": 0,
-        "name": "commandRelay",
+        "name": "enviarComandos",
         "service": "registered",
-        "x": 1240,
+        "x": 1250,
         "y": 880,
         "wires": []
     },
@@ -578,7 +469,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "{\"group\":{\"show\":[\"AutoHome_Login\"],\"hide\":[\"AutoHome_Relay_1\",\"AutoHome_Relay_2\",\"AutoHome_Led_1\",\"AutoHome_Led_2\",\"AutoHome_Led_3\",\"AutoHome_Led_4\",\"AutoHome_Led_5\",\"AutoHome_Led_6\",\"AutoHome_Led_7\",\"AutoHome_Led_8\",\"AutoHome_Texto_Livre\",\"AutoHome_Temperatura\",\"AutoHome_Umidade\",\"AutoHome_Status\",\"AutoHome_GroupLogout\"]}}",
+                "to": "{\"group\":{\"show\":[\"AutoHome_Login\"],\"hide\":[\"AutoHome_Led_1\",\"AutoHome_Led_2\",\"AutoHome_Led_3\",\"AutoHome_Led_4\",\"AutoHome_Led_5\",\"AutoHome_Led_6\",\"AutoHome_Led_7\",\"AutoHome_Led_8\",\"AutoHome_Texto_Livre\",\"AutoHome_Temperatura\",\"AutoHome_Umidade\",\"AutoHome_Status\",\"AutoHome_GroupLogout\"]}}",
                 "tot": "json"
             }
         ],
@@ -611,8 +502,8 @@
         "z": "aba512bc.ffd29",
         "name": "Sinal de que abriu no browser",
         "info": "Quando a página do node red é aberta no browser \n(pela primeira vez) esse bloco dispara um sinal \npara então o UI_CONTROL esconder os blocos de \ncontrole  e mostrar o de login.\n\n\n-Isso é necessário porque não temos como esconder\nwidgets por padrão, apenas por meio de código.",
-        "x": 360,
-        "y": 200,
+        "x": 340,
+        "y": 220,
         "wires": []
     },
     {
@@ -621,7 +512,7 @@
         "z": "aba512bc.ffd29",
         "name": "LOGOUT",
         "info": "Evento de logout, esconderá as widgets de controle e \nmostrará o formulário de Login.",
-        "x": 860,
+        "x": 880,
         "y": 220,
         "wires": []
     },
@@ -650,7 +541,7 @@
         "color": "",
         "bgcolor": "",
         "icon": "",
-        "payload": "{\"group\":{\"hide\":[\"AutoHome_Relay_1\",\"AutoHome_Relay_2\",\"AutoHome_Led_1\",\"AutoHome_Led_2\",\"AutoHome_Led_3\",\"AutoHome_Led_4\",\"AutoHome_Led_5\",\"AutoHome_Led_6\",\"AutoHome_Led_7\",\"AutoHome_Led_8\",\"AutoHome_Texto_Livre\",\"AutoHome_Temperatura\",\"AutoHome_Umidade\",\"AutoHome_Status\",\"AutoHome_GroupLogout\"],\"show\":[\"AutoHome_Login\"]}}",
+        "payload": "{\"group\":{\"hide\":[\"AutoHome_Led_1\",\"AutoHome_Led_2\",\"AutoHome_Led_3\",\"AutoHome_Led_4\",\"AutoHome_Led_5\",\"AutoHome_Led_6\",\"AutoHome_Led_7\",\"AutoHome_Led_8\",\"AutoHome_Texto_Livre\",\"AutoHome_Temperatura\",\"AutoHome_Umidade\",\"AutoHome_Status\",\"AutoHome_GroupLogout\"],\"show\":[\"AutoHome_Login\"]}}",
         "payloadType": "json",
         "topic": "",
         "x": 890,
@@ -1914,8 +1805,8 @@
         "reset": "",
         "bytopic": "all",
         "name": "Teste trigger",
-        "x": 570,
-        "y": 1640,
+        "x": 550,
+        "y": 1680,
         "wires": [
             [
                 "93619457.6ba728"
@@ -1935,19 +1826,19 @@
         "format": "{{msg.payload}}",
         "layout": "row-left",
         "x": 930,
-        "y": 1640,
+        "y": 1680,
         "wires": []
     },
     {
         "id": "93619457.6ba728",
         "type": "function",
         "z": "aba512bc.ffd29",
-        "name": "ParseToLabelOn",
+        "name": "ParseToLabelStatus",
         "func": "if(msg.payload === true)\n{\n    msg.payload = 'Conectado';\n    return msg;\n}\nelse\n{\n    msg.payload = 'Desconectado';\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
-        "x": 750,
-        "y": 1640,
+        "x": 740,
+        "y": 1680,
         "wires": [
             [
                 "ebc9f6e3.db4c68"
@@ -1958,10 +1849,20 @@
         "id": "67d22427.f331ec",
         "type": "comment",
         "z": "aba512bc.ffd29",
-        "name": "v2.2.4.0",
-        "info": "",
+        "name": "v2.2.4.1",
+        "info": "2.2.4.1:\nPequenas correções, adição de comentários e remoção de \"lixo\"",
         "x": 70,
         "y": 20,
+        "wires": []
+    },
+    {
+        "id": "66e52198.de7d3",
+        "type": "comment",
+        "z": "aba512bc.ffd29",
+        "name": "verifica se recebeu o evento \"online\" do dispositivo",
+        "info": "- se o evento \"online\" for recebido, muda o status para online\n- se nada foi recebido dentro do intervalo definido no \"wait for\"\nentão define o status para offline",
+        "x": 730,
+        "y": 1640,
         "wires": []
     }
 ]
