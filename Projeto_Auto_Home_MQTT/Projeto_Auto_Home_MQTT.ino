@@ -1,13 +1,3 @@
-
-const String ORG = " ";
-const String DEVICE_TYPE = " ";
-const String DEVICE_ID = " ";
-#define DEVICE_TOKEN " "
-#define WIFI_SSID " "
-#define WIFI_PASSWORD " "
-
-
-
 //v2.5.1.1
 #define CODE_LEVEL_DEBUG "versão 2.5.1.1"
 //- o algoritmo pode travar quando cai a conexão e algum push button está sendo clicado
